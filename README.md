@@ -12,7 +12,7 @@ The model integrates:
 - Modality-specific temporal encoders
 - Cross-attention-based multimodal fusion
 
-This repository provides the model implementation rather than a complete reproducibility package. Details of data collection, preprocessing, augmentation, validation, and evaluation are described in the paper.
+This repository provides the model implementation rather than a complete reproducibility package.
 
 ## Model Input
 
