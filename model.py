@@ -1,6 +1,3 @@
-# * Multi_modal
-
-
 def cross_attention_block(ecg_input, acc_input):
 
     # ecg_input = Input(shape=ecg_input_shape)
@@ -46,9 +43,6 @@ def cross_attention_block(ecg_input, acc_input):
 
     acc_y = GlobalAveragePooling1D()(acc_y)
     acc_y = Reshape((1, 128))(acc_y)
-
-    # total_features = Concatenate()([acc_y, ecg_y])
-    # total_features = Reshape((1, 128))(total_features)
 
     cross_attention_output_layer1 = MultiHeadAttention(
         num_heads=6, key_dim=128, dropout=0.2)(query=ecg_y, value=acc_y, key=acc_y)
@@ -122,22 +116,13 @@ def squeeze_excite_block(input):
 
 
 def combined_model(ecg_input_shape, acc_input_shape):
-    # ECG data through OS-Block
-    # ! ECG数据输入分支
     ecg_input = Input(shape=ecg_input_shape)
-
-    # new_input = Permute((2, 1))(ecg_input)
 
     filters_list = [64, 128, 256]
     kernel_sizes_list = [
         [3, 5, 7, 11, 43, 73, 97, 127, 197, 307],  # layer 1
-        # [3, 5, 7, 11, 17, 23, 31, 43, 73, 97, 127, 197, 307],  # layer 1
-        # [3, 5, 7, 11, 43, 97, 127],  # layer 1
-        # [3, 5, 7, 11, 17, 23, 73],  # layer 1
         [3, 5, 7, 11, 43, 73, 97, 127, 197, 307],  # layer 2
-        # [3, 5, 7, 11, 17, 23, 31, 43, 73, 97, 127, 197, 307],  # layer 2
-        # [3, 5, 7, 11, 43, 97, 127],  # layer 2
-        # [3, 5, 7, 11, 17, 23, 73],  # layer 2
+
         [1, 2]
     ]
 
@@ -147,7 +132,6 @@ def combined_model(ecg_input_shape, acc_input_shape):
     ecg_features = Flatten()(ecg_features)
 
     # Accelerometer data through MLSTM-FCN-like structure
-    # ! Motion数据输入分支
     acc_input = Input(shape=acc_input_shape)
 
     x = LSTM(8)(acc_input)
