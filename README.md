@@ -12,11 +12,10 @@ The model integrates:
 - Modality-specific temporal encoders
 - Cross-attention-based multimodal fusion
 
-This repository provides the model implementation rather than a complete reproducibility package.
-
+This repository provides the model implementation.
 ## Model Input
 
-The model expects two inputs:
+The model expects two inputs in the paper:
 
 ```python
 ecg_input_shape = (3, 500)
