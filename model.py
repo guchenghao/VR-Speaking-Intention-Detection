@@ -62,7 +62,7 @@ def cross_attention_block(ecg_input, acc_input):
 
 
 def OS_Block(input_tensor, filters_list, kernel_sizes_list):
-    x = input_tensor
+    x = Permute((2, 1))(input_tensor)
 
     for layer_idx, (filters, kernel_sizes) in enumerate(zip(filters_list, kernel_sizes_list)):
         # Before the channel-scale refinement layer [1, 2],
