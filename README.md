@@ -47,6 +47,12 @@ In addition, the continuous timeline was split before sliding-window
 generation, reducing overlap between training and validation windows
 around fold boundaries.
 
-Because the temporal distribution of speaking-intention events differs
+
+
+### Metric Clarification
+
+In the published paper, Precision, Recall, and F1-score were reported without explicitly specifying the averaging strategy. 
+These metrics were computed using macro averaging across the speaking-intention and non-intention classes.
+Macro averaging was adopted to give equal weight to both classes under class-imbalanced conditions. 
 across participants, the exact fold boundaries may therefore vary
 between participants.
