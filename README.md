@@ -51,8 +51,9 @@ around fold boundaries.
 
 ### Metric Clarification
 
-In the published paper, Precision, Recall, and F1-score were reported without explicitly specifying the averaging strategy. 
+In the published paper, Precision and Recallwere reported without explicitly specifying the averaging strategy. 
 These metrics were computed using macro averaging across the speaking-intention and non-intention classes.
+The reported F1-score was calculated as the harmonic mean of these macro-averaged Precision and Recall values.
 Macro averaging was adopted to give equal weight to both classes under class-imbalanced conditions. 
 across participants, the exact fold boundaries may therefore vary
 between participants.
