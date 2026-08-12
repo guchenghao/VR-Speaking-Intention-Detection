@@ -57,3 +57,13 @@ The reported F1-score was calculated as the harmonic mean of these macro-average
 Macro averaging was adopted to give equal weight to both classes under class-imbalanced conditions. 
 across participants, the exact fold boundaries may therefore vary
 between participants.
+
+
+
+# Data Augmentation
+
+As an extension to the data augmentation procedure described in our TCSS paper, we provide the implementation used for participant-wise class balancing. The minority class of each participant was augmented using jittering, scaling, time warping, or their combinations.
+
+Jittering introduces point-wise Gaussian perturbations, while scaling modifies signal magnitude over time. Time warping applies a smooth nonlinear temporal deformation while preserving the synchronization among channels within the same modality. ECG and ACC are augmented independently, allowing moderate modality-specific temporal and signal variations.
+
+All augmentations are treated as label-preserving perturbations for improving model robustness rather than as physiologically exact synthetic signal generation.
