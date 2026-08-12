@@ -60,7 +60,7 @@ between participants.
 
 
 
-# Data Augmentation
+### Data Augmentation
 
 As an extension to the data augmentation procedure described in our paper, we provide the implementation used for participant-wise class balancing. The minority class of each participant was augmented using jittering, scaling, time warping, or their combinations.
 
